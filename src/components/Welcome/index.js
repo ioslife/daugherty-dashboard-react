@@ -6,7 +6,7 @@ export default class Welcome extends Component {
     render() {
       return (
         <div className='welcomeCol'>
-            <div className="welcomeText">Welcome to Daugherty, <b>Tom</b>!</div>
+            <div className="welcomeText">Welcome to <b>Daugherty</b>!</div>
             <br/>
             <br/>
             Here is today's schedule for you:
