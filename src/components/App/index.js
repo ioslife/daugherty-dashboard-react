@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import '../../styles/App/index.css';
-import VideoEmbed from '../VideoEmbed'
-import Welcome from '../Welcome'
-import image from './logo.png'
-import Bottom from '../Bottom'
+import MainContent from '../MainContent';
+import FrontKitchen from '../FrontKitchen';
+import BackKitchen from '../BackKitchen'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 class App extends Component {
   render() {
     return (
-      <div className="appDiv">
-        <div className="dbsLogo">
-          <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
-        </div>
-        
-        <VideoEmbed/>
-        <Welcome/>
-        <Bottom/>
-      </div>
+      <Router>
+        <Route path="/main" exact component={MainContent} />
+        <Route path="/frontKitchen/" exact component={FrontKitchen} />
+        <Route path="/backKitchen/" exact component={BackKitchen} />
+      </Router>
+     
     );
   }
 }
