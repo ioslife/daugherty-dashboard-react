@@ -6,6 +6,7 @@ import image from '../App/logo.png'
 import contentText from '../../bottomTextCont.json'
 
 export default class MainContent extends Component {
+
     render() {
         return (
             <div className="appDiv">
@@ -15,7 +16,7 @@ export default class MainContent extends Component {
                 
                 <VideoEmbed/>
                 <Welcome/>
-                <Bottom text={contentText.BackKitchen}/>
+                <Bottom text={contentText.FrontKitchen}/>
           </div>
         )
     }
