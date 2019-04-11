@@ -9,6 +9,7 @@
     padding: 20px;    
     color: white;
     height: 1575px;
+    background-image: linear-gradient(rgba(120,156,63,0.7), rgba(120,156,63,0.7));
 }
 
 .welcomeText {

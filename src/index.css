@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -13,6 +14,7 @@ code {
     monospace;
 }
 
-:root {
-  background-color: #789c3f;
+html {
+  background-image: linear-gradient(#789c3f, white);
 }
+
