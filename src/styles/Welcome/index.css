@@ -1,8 +1,12 @@
 .welcomeCol {
     float: right;
-    margin-right: 3%;
-    width: 28%;
-    font-size: 160%;
+    margin-right: 2%;
+    width: 20%;
+    font-size: 350%;
+    margin-top: 30px;
+    margin-left:20px;
+    border: solid 5px;
+    padding: 20px;    
 }
 
 .welcomeText {

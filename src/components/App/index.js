@@ -9,7 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className="appDiv">
-        <img width="34%" src={image} alt='Daugherty Business Solutions'></img>
+        <div className="dbsLogo">
+          <img src={image} alt='Daugherty Business Solutions'></img>
+        </div>
+        
         <VideoEmbed/>
         <Welcome/>
         <Bottom/>
