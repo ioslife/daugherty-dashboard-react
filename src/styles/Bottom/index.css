@@ -1,8 +1,8 @@
 .bottom {
     float: left;
-    margin-top: 30px;
-    margin-left: 10px;
+    margin-left: 1%;
     border: solid 5px;
     padding: 25px;  
     font-size: 600%;
+    color: white;
 } 

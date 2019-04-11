@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="appDiv">
         <div className="dbsLogo">
-          <img src={image} alt='Daugherty Business Solutions'></img>
+          <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
         </div>
         
         <VideoEmbed/>
