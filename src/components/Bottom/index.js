@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../../styles/Bottom/index.css'
-import Marquee from 'marquee-react-dwyer'
 
 export default class Bottom extends Component {
 
@@ -12,7 +11,7 @@ export default class Bottom extends Component {
             Fully staffed in-house Development Center.   
             Over 300 Architects and Senior Software Engineers.   
             Optimized for <b>speed, quality, and cost efficiency</b>.
-            
+
           </p>
         </div>
       )
