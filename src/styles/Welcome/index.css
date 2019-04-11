@@ -1,0 +1,10 @@
+.welcomeCol {
+    float: right;
+    margin-right: 3%;
+    width: 28%;
+    font-size: 160%;
+}
+
+.welcomeText {
+    font-size: 200%;
+}
