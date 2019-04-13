@@ -16,7 +16,7 @@ export default class MainContent extends Component {
                 </div>
                 
                 <VideoEmbed/>
-                <Welcome newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]}/>
+                <Welcome newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]} upcomingEng={[]}/>
                 <Bottom text={contentText.MainContent}/>
           </div>
         )
