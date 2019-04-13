@@ -6,6 +6,8 @@ import image from '../App/logo.png'
 import contentText from '../../bottomTextCont.json'
 
 export default class MainContent extends Component {
+    candArr = ['Ron Daugherty', 'Jan Daugherty']
+    clientArr = ['The Home Depot', 'Cox Communications']
     render() {
         return (
             <div className="appDiv">
@@ -14,7 +16,7 @@ export default class MainContent extends Component {
                 </div>
                 
                 <VideoEmbed/>
-                <Welcome/>
+                <Welcome newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]}/>
                 <Bottom text={contentText.MainContent}/>
           </div>
         )

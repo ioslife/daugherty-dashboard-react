@@ -21,7 +21,7 @@
 
 /* Make it move */
 @keyframes marquee {
-    0%   { text-indent: 27.5em }
+    0%   { text-indent: 105em }
     100% { text-indent: -105em }
 }
 

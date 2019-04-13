@@ -3,30 +3,42 @@ import '../../styles/Welcome/index.css'
 
 export default class Welcome extends Component {
 
+   createBody = () => {
+       let arr = []
+        if(this.props.newHireCands.length > 0){
+            arr.push(<h3 key={0}><b>New Hire Candidates:</b></h3>)
+            this.props.newHireCands.forEach( (e, index) => {
+                arr.push(<li key={index +1}>{e}</li>)
+            })   
+        } 
+        if ( this.props.clientPartners.length > 0){
+            arr.push(<h3 key={-2}><b>Client Partners:</b></h3>)
+            this.props.clientPartners.forEach( (e, index) => {
+                arr.push(<li key={(index+20)*(index+20)}>{e}</li>)
+            }) 
+        }
+        if ( this.props.newTraining.length > 0){
+            arr.push(<h3 key={-3}><b>Don't miss out on upcoming training:</b></h3>)
+            this.props.newTraining.forEach( (e, index) => {
+                arr.push(<li key={(index+40)*(index+40)}>{e}</li>)
+            }) 
+        }
+        if ( this.props.upcomingEng.length > 0){
+            arr.push(<h3 key={-4}><b>Recent Wins:</b></h3>)
+            this.props.upcomingEng.forEach( (e, index) => {
+                arr.push(<li key={(index+30)*(index+30)}>{e}</li>)
+            }) 
+        }
+      return arr
+   }
+
     render() {
       return (
         <div className='welcomeCol'>
             <div className="welcomeText">Welcome to <b>Daugherty</b>!</div>
-            <br/>
-            <br/>
-            Here is today's schedule for you:
-            <ul>
-                <li>
-                    <b>1:00</b> - Office tour
-                </li>
-                <br/>
-                <li>
-                    <b>1:30</b> - Interview with Atlanta Branch Manager <b>Rick Mayhall</b>
-                </li>
-                <br/>
-                <li>
-                    <b>2:00</b> - Break
-                </li>
-                <br/>
-                <li>
-                    <b>3:30</b> - Interview with Client Partner <b>Jim Johnson</b>
-                </li>
-            </ul>
+            
+                {this.createBody()}
+            
         </div>
       )
     }

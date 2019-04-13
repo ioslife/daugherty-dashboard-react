@@ -6,7 +6,7 @@ export default class Bottom extends Component {
   render() {
     return (
       <div className="bottom">
-        <p class="marquee">
+        <p className="marquee">
         {this.props.text}
 
         </p>

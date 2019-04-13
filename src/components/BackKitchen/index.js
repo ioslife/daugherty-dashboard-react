@@ -6,7 +6,7 @@ import image from '../App/logo.png'
 import contentText from '../../bottomTextCont.json'
 
 export default class MainContent extends Component {
-
+    newTrain = ['Apr 19 - Math Challenge - Lunch Workshop', 'Apr 23 - Agile Product Owner Training', 'Apr 25 - Cloud Forum']
     render() {
         return (
             <div className="appDiv">
@@ -15,8 +15,8 @@ export default class MainContent extends Component {
                 </div>
                 
                 <VideoEmbed/>
-                <Welcome/>
-                <Bottom text={contentText.FrontKitchen}/>
+                <Welcome newHireCands={[]} clientPartners={[]} newTraining={this.newTrain} upcomingEng={[]}/>
+                <Bottom text={contentText.BackKitchen}/>
           </div>
         )
     }
