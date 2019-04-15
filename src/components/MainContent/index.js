@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import VideoEmbed from '../VideoEmbed'
 import Column from '../Column'
 import Footer from '../Footer'
-import image from '../App/logo.png'
+import image from './logo.png'
 import contentText from '../../bottomTextCont.json'
+import '../../styles/MainContent/index.css'
 
 export default class MainContent extends Component {
     candArr = ['Ron Daugherty', 'Jan Daugherty']
@@ -12,7 +13,7 @@ export default class MainContent extends Component {
         return (
             <div className="appDiv">
                 <div className="dbsLogo">
-                    <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
+                    <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
                 <VideoEmbed/>

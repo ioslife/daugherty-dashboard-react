@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import VideoEmbed from '../VideoEmbed'
 import Column from '../Column'
 import Footer from '../Footer'
-import image from '../App/logo.png'
+import image from '../MainContent/logo.png'
 import contentText from '../../bottomTextCont.json'
 
 export default class MainContent extends Component {
