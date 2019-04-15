@@ -3,11 +3,10 @@ import VideoEmbed from '../VideoEmbed'
 import Column from '../Column'
 import Footer from '../Footer'
 import image from '../../logo.png'
-import '../../styles/DevCenter/index.css'
+import '../../styles/Lobby/index.css'
 import { pullData } from '../../services/pullData';
 
-export default class DevCenter extends Component {
-    newTrain = ['Apr 19 - Math Challenge - Lunch Workshop', 'Apr 23 - Agile Product Owner Training', 'Apr 25 - Cloud Forum']
+export default class Lobby extends Component {
     constructor(props) {
         super(props)
 
@@ -17,17 +16,18 @@ export default class DevCenter extends Component {
             footer: '',
             column: ''
         }
-    }    
+    } 
 
+    candArr = ['Ron Daugherty', 'Jan Daugherty']
+    clientArr = ['The Home Depot', 'Cox Communications']
 
     componentDidMount() {
         let getData = pullData(fetch)
-        return getData({tvIdentifier: 'atl-dev'}).then (result => {
+        return getData({tvIdentifier: 'atl-lobby'}).then (result => {
             result.json().then( response => {
                 this.setState({
                     url: response.videoPlaylist,
-                    footer: response.banner,
-                    column: response.sidebar
+
                 })
             })
         })
@@ -37,11 +37,11 @@ export default class DevCenter extends Component {
         return (
             <div className="appDiv">
                 <div className="dbsLogo">
-                <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
+                    <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
                 <VideoEmbed url={this.state.url} title={this.state.title}/>
-                <Column newHireCands={[]} clientPartners={[]} newTraining={this.newTrain} upcomingEng={[]}/>
+                <Column newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]} upcomingEng={[]}/>
                 <Footer text={this.state.footer}/>
           </div>
         )
