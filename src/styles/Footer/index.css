@@ -1,4 +1,4 @@
-.bottom {
+.footer {
     float: left;
     margin-left: 1%;
     border: solid 5px;
@@ -16,7 +16,7 @@
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
-    animation: marquee 50s linear infinite;
+    animation: marquee 60s linear infinite;
 }
 
 /* Make it move */

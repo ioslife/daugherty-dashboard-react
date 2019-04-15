@@ -11,11 +11,12 @@ export default class MainContent extends Component {
         return (
             <div className="appDiv">
                 <div className="dbsLogo">
-                <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
+                    <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
+                
                 <Welcome upcomingEng={this.upcomingEng} newHireCands={[]} clientPartners={[]} newTraining={[]}/>
                 <VideoEmbed/>
-                <Bottom text={contentText.FrontKitchen}/>
+                <Bottom text={contentText.Atlanta}/>
           </div>
         )
     }

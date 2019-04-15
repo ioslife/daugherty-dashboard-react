@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import VideoEmbed from '../VideoEmbed'
-import Welcome from '../Welcome'
-import Bottom from '../Bottom'
+import Column from '../Column'
+import Footer from '../Footer'
 import image from '../App/logo.png'
 import contentText from '../../bottomTextCont.json'
 
@@ -12,12 +12,12 @@ export default class MainContent extends Component {
         return (
             <div className="appDiv">
                 <div className="dbsLogo">
-                <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
+                    <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
                 <VideoEmbed/>
-                <Welcome newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]} upcomingEng={[]}/>
-                <Bottom text={contentText.MainContent}/>
+                <Column newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]} upcomingEng={[]}/>
+                <Footer text={contentText.Corporate}/>
           </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import '../../styles/Welcome/index.css'
+import '../../styles/Column/index.css'
 
-export default class Welcome extends Component {
+export default class Column extends Component {
 
    createBody = () => {
        let arr = []
@@ -35,10 +35,11 @@ export default class Welcome extends Component {
     render() {
       return (
         <div className='welcomeCol'>
-            <div className="welcomeText">Welcome to <b>Daugherty</b>!</div>
+            <div className="welcomeText">
+                Welcome to <b>Daugherty</b>!
+            </div>
             
-                {this.createBody()}
-            
+            {this.createBody()}
         </div>
       )
     }

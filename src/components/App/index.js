@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/main" exact component={MainContent} />
-        <Route path="/frontKitchen/" exact component={FrontKitchen} />
-        <Route path="/backKitchen/" exact component={BackKitchen} />
+        <Route path="/corp" exact component={MainContent} />
+        <Route path="/atl/" exact component={FrontKitchen} />
+        <Route path="/dev/" exact component={BackKitchen} />
       </Router>
      
     );
