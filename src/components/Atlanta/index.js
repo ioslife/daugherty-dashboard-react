@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import VideoEmbed from '../VideoEmbed'
-import Welcome from '../Welcome'
-import Bottom from '../Bottom'
+import Column from '../Column'
+import Footer from '../Footer'
 import image from '../App/logo.png'
 import contentText from '../../bottomTextCont.json'
 
@@ -14,9 +14,9 @@ export default class MainContent extends Component {
                     <img height="265px" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
-                <Welcome upcomingEng={this.upcomingEng} newHireCands={[]} clientPartners={[]} newTraining={[]}/>
+                <Column upcomingEng={this.upcomingEng} newHireCands={[]} clientPartners={[]} newTraining={[]}/>
                 <VideoEmbed/>
-                <Bottom text={contentText.Atlanta}/>
+                <Footer text={contentText.Atlanta}/>
           </div>
         )
     }
