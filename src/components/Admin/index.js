@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import { Text } from 'informed'
-import TextareaAutosize from 'react-autosize-textarea'
 import image from '../../logo.png'
 import '../../styles/Admin/index.css'
 import axios from 'axios'
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState, convertToRaw } from 'draft-js';
+import { EditorState} from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import draftToHtml from 'draftjs-to-html';
 import {pullData} from '../../services/pullData'
+import {convertToHTML, convertFromHTML} from 'draft-convert'
 
 export default class Kitchen extends Component {
     upcomingEng = ''
@@ -30,7 +28,6 @@ export default class Kitchen extends Component {
     }
 
     handleChange(e) {
-        console.log(this.state)
         if (e.target.id === 'url') {
             this.setState({url: e.target.value})
         }
@@ -43,6 +40,7 @@ export default class Kitchen extends Component {
             this.setState({tvIdentifier: e.target.value})
             this.fillFields()
         }
+        console.log(this.state)
     }
 
     updateData = () => {
@@ -57,16 +55,18 @@ export default class Kitchen extends Component {
                 this.setState({
                     url: response.videoPlaylist,
                     footer: response.banner,
-                    column: response.sidebar
+                    column: response.sidebar,
+                    editorState: EditorState.createWithContent(convertFromHTML(this.state.column))
                 })
             })
+            
         })
     }
 
     onEditorStateChange = (editorState) => {
         this.setState({
           editorState,
-          column: draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+          column: convertToHTML(this.state.editorState.getCurrentContent())
         })
       }
 

@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "draft-convert": "^2.1.4",
     "draft-js": "^0.10.5",
-    "draftjs-to-html": "^0.8.4",
     "informed": "^2.3.1",
     "react": "^16.8.6",
     "react-autosize-textarea": "^7.0.0",
