@@ -12,21 +12,19 @@ export default class Lobby extends Component {
 
         this.state = {
             url: '',
-            title: '',
             footer: '',
             column: ''
         }
     } 
-
-    candArr = ['Ron Daugherty', 'Jan Daugherty']
-    clientArr = ['The Home Depot', 'Cox Communications']
-
+    
     componentDidMount() {
         let getData = pullData(fetch)
         return getData({tvIdentifier: 'atl-lobby'}).then (result => {
             result.json().then( response => {
                 this.setState({
                     url: response.videoPlaylist,
+                    footer: response.banner,
+                    column: response.sidebar
 
                 })
             })
@@ -41,7 +39,7 @@ export default class Lobby extends Component {
                 </div>
                 
                 <VideoEmbed url={this.state.url} title={this.state.title}/>
-                <Column newHireCands={this.candArr} clientPartners={this.clientArr} newTraining={[]} upcomingEng={[]}/>
+                <Column column={this.state.column}/>
                 <Footer text={this.state.footer}/>
           </div>
         )

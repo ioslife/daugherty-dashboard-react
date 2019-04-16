@@ -13,7 +13,6 @@ export default class DevCenter extends Component {
 
         this.state = {
             url: '',
-            title: '',
             footer: '',
             column: ''
         }
@@ -41,7 +40,7 @@ export default class DevCenter extends Component {
                 </div>
                 
                 <VideoEmbed url={this.state.url}/>
-                <Column newHireCands={[]} clientPartners={[]} newTraining={this.newTrain} upcomingEng={[]}/>
+                <Column column={this.state.column}/>
                 <Footer text={this.state.footer}/>
           </div>
         )

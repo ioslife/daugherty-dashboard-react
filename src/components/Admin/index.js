@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Text } from 'informed'
 import TextareaAutosize from 'react-autosize-textarea'
 import image from '../../logo.png'
-import { pushData } from '../../services/pushData'
 import '../../styles/Admin/index.css'
+import axios from 'axios'
 
 export default class Kitchen extends Component {
     upcomingEng = ''
@@ -11,7 +11,7 @@ export default class Kitchen extends Component {
         super(props)
 
         this.state = {
-            tvIdentifier: '',
+            tvIdentifier: 'atl-lobby',
             url: '',
             footer: '',
             column: ''
@@ -38,14 +38,10 @@ export default class Kitchen extends Component {
         if (e.target.id === 'dropdown') {
             this.setState({tvIdentifier: e.target.value})
         }
-
-        console.log(this.state)
     }
 
     updateData = () => {
-        console.log(this.state)
-        let updateData = pushData(fetch)
-        return updateData({url: (this.state.url), footer: (this.state.footer), column: (this.state.column)})
+        axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url), banner: (this.state.footer), sidebar: (this.state.column)})
     }
 
     render() {
@@ -72,7 +68,7 @@ export default class Kitchen extends Component {
                         <label>Footer Data:</label>
                         <TextareaAutosize rows={5} id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></TextareaAutosize>
                         <br/>
-                        <input className='submitBtn' type="Submit" value="Update Dashboard"/>
+                        <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
                     </form>
                 </div>
           </div>

@@ -7,13 +7,11 @@ import '../../styles/Kitchen/index.css'
 import { pullData } from '../../services/pullData';
 
 export default class Kitchen extends Component {
-    upcomingEng = ['GPC - Dev Center team working to update the napa online website', 'Southwest - Dallas ETOPS project launching this month with help from MSP and ATL', 'Georgia Pacific - Daugherty has reopened project work with GP']
     constructor(props) {
         super(props)
 
         this.state = {
             url: '',
-            title: '',
             footer: '',
             column: ''
         }
@@ -24,7 +22,9 @@ export default class Kitchen extends Component {
         return getData({tvIdentifier: 'atl-kitchen'}).then (result => {
             result.json().then( response => {
                 this.setState({
-                    url: response.videoPlaylist
+                    url: response.videoPlaylist,
+                    footer: response.banner,
+                    column: response.sidebar
                 })
             })
         })
@@ -37,7 +37,7 @@ export default class Kitchen extends Component {
                     <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
-                <Column upcomingEng={this.upcomingEng} newHireCands={[]} clientPartners={[]} newTraining={[]}/>
+                <Column column={this.state.column}/>
                 <VideoEmbed url={this.state.url} title={this.state.title}/>
                 <Footer text={this.state.footer}/>
           </div>
