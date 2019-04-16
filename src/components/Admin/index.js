@@ -8,6 +8,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import { EditorState, convertToRaw } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
+import {pullData} from '../../services/pullData'
 
 export default class Kitchen extends Component {
     upcomingEng = ''
@@ -24,10 +25,12 @@ export default class Kitchen extends Component {
     } 
     
     componentDidMount() {
-        console.log(this.state)
+        this.fillFields()
+        
     }
 
     handleChange(e) {
+        console.log(this.state)
         if (e.target.id === 'url') {
             this.setState({url: e.target.value})
         }
@@ -38,11 +41,26 @@ export default class Kitchen extends Component {
 
         if (e.target.id === 'dropdown') {
             this.setState({tvIdentifier: e.target.value})
+            this.fillFields()
         }
     }
 
     updateData = () => {
         axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url), banner: (this.state.footer), sidebar: (this.state.column)})
+    }
+
+    fillFields = () => {
+        let getData = pullData(fetch)
+
+        return getData({tvIdentifier: this.state.tvIdentifier}).then (result => {
+            result.json().then( response => {
+                this.setState({
+                    url: response.videoPlaylist,
+                    footer: response.banner,
+                    column: response.sidebar
+                })
+            })
+        })
     }
 
     onEditorStateChange = (editorState) => {
@@ -68,7 +86,7 @@ export default class Kitchen extends Component {
                         </select>
                         <br/>
                         <label>Video Playlist URL: </label>
-                        <Text id='url' value={this.state.url} onChange={this.handleChange.bind(this)}></Text>
+                        <input className='textInput' size='200' id='url' value={this.state.url} onChange={this.handleChange.bind(this)}></input>
                         <br/>                    
                         <label>Column Data:</label>
                         <Editor
@@ -79,7 +97,7 @@ export default class Kitchen extends Component {
                         />
                         <br/>
                         <label>Footer Data:</label>
-                        <TextareaAutosize rows={5} id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></TextareaAutosize>
+                        <input className='textInput' size="250" id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></input>
                         <br/>
                         <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
                     </form>
