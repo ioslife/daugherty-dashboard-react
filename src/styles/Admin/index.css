@@ -1,0 +1,25 @@
+input {
+    padding-right: 10%;
+}
+
+label {
+    font-size: 150%;
+    font-weight: bold;
+    margin-right: 1%;
+}
+
+.submitBtn {
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.form {
+    margin-left: 1%;
+}

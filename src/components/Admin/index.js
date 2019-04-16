@@ -1,11 +1,10 @@
-import React, {Component} from 'react'
-import VideoEmbed from '../VideoEmbed'
-import Column from '../Column'
-import Footer from '../Footer'
+import React, { Component } from 'react'
+import { Text } from 'informed'
+import TextareaAutosize from 'react-autosize-textarea'
 import image from '../../logo.png'
-import '../../styles/Kitchen/index.css'
 import { pullData } from '../../services/pullData'
-import { pushData } from '../../services/pushData';
+import { pushData } from '../../services/pushData'
+import '../../styles/Admin/index.css'
 
 export default class Kitchen extends Component {
     upcomingEng = ''
@@ -14,7 +13,6 @@ export default class Kitchen extends Component {
 
         this.state = {
             url: '',
-            title: '',
             footer: '',
             column: ''
         }
@@ -32,6 +30,22 @@ export default class Kitchen extends Component {
         })
     }
 
+    handleChange(e) {
+        if (e.target.id === 'url') {
+            this.setState({url: e.target.value})
+        }
+
+        if (e.target.id === 'column') {
+            this.setState({column: e.target.value})
+        }
+
+        if (e.target.id === 'footer') {
+            this.setState({footer: e.target.value})
+        }
+
+        console.log(this.state)
+    }
+
     updateData = () => {
         console.log(this.state)
         let updateData = pushData(fetch)
@@ -45,13 +59,20 @@ export default class Kitchen extends Component {
                     <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
-                <form onSubmit={this.updateData}>
-                    <label value={this.state.url}>Video Playlist URL: </label>
-                    <input></input>
-                    <inputfield></inputfield>
-                    <br></br>
-                    <input  value="Update Dashboard" onClick={this.updateData} />
-                </form>
+                <div className='form'>
+                    <form onSubmit={this.updateData}>
+                        <label>Video Playlist URL: </label>
+                        <Text id='url' value={this.state.url} onChange={this.handleChange.bind(this)}></Text>
+                        <br/>                    
+                        <label>Column Data:</label>
+                        <TextareaAutosize rows={5} id='column' value={this.state.column} onChange={this.handleChange.bind(this)}></TextareaAutosize>
+                        <br/>
+                        <label>Footer Data:</label>
+                        <TextareaAutosize rows={5} id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></TextareaAutosize>
+                        <br/>
+                        <input className='submitBtn' type="Submit" value="Update Dashboard"/>
+                    </form>
+                </div>
           </div>
         )
     }
