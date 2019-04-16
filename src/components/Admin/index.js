@@ -24,7 +24,6 @@ export default class Kitchen extends Component {
     
     componentDidMount() {
         this.fillFields()
-        
     }
 
     handleChange(e) {
@@ -37,14 +36,12 @@ export default class Kitchen extends Component {
         }
 
         if (e.target.id === 'dropdown') {
-            this.setState({tvIdentifier: e.target.value})
-            this.fillFields()
+            this.setState({tvIdentifier: e.target.value}, this.fillFields)
         }
-        console.log(this.state)
     }
 
     updateData = () => {
-        axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url + '/embed'), banner: (this.state.footer), sidebar: (this.state.column)})
+        axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url), banner: (this.state.footer), sidebar: (this.state.column)})
     }
 
     fillFields = () => {
@@ -56,7 +53,7 @@ export default class Kitchen extends Component {
                     url: response.videoPlaylist,
                     footer: response.banner,
                     column: response.sidebar,
-                    editorState: EditorState.createWithContent(convertFromHTML(this.state.column))
+                    editorState: EditorState.createWithContent(convertFromHTML(response.sidebar))
                 })
             })
             
