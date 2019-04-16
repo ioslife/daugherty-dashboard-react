@@ -4,6 +4,10 @@ import TextareaAutosize from 'react-autosize-textarea'
 import image from '../../logo.png'
 import '../../styles/Admin/index.css'
 import axios from 'axios'
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertToRaw } from 'draft-js';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import draftToHtml from 'draftjs-to-html';
 
 export default class Kitchen extends Component {
     upcomingEng = ''
@@ -14,7 +18,8 @@ export default class Kitchen extends Component {
             tvIdentifier: 'atl-lobby',
             url: '',
             footer: '',
-            column: ''
+            column: '',
+            editorState: EditorState.createEmpty()
         }
     } 
     
@@ -25,10 +30,6 @@ export default class Kitchen extends Component {
     handleChange(e) {
         if (e.target.id === 'url') {
             this.setState({url: e.target.value})
-        }
-
-        if (e.target.id === 'column') {
-            this.setState({column: e.target.value})
         }
 
         if (e.target.id === 'footer') {
@@ -43,6 +44,13 @@ export default class Kitchen extends Component {
     updateData = () => {
         axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url), banner: (this.state.footer), sidebar: (this.state.column)})
     }
+
+    onEditorStateChange = (editorState) => {
+        this.setState({
+          editorState,
+          column: draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+        })
+      }
 
     render() {
         return (
@@ -63,7 +71,12 @@ export default class Kitchen extends Component {
                         <Text id='url' value={this.state.url} onChange={this.handleChange.bind(this)}></Text>
                         <br/>                    
                         <label>Column Data:</label>
-                        <TextareaAutosize rows={5} id='column' value={this.state.column} onChange={this.handleChange.bind(this)}></TextareaAutosize>
+                        <Editor
+                            editorState={this.state.editorState}
+                            wrapperClassName="demo-wrapper"
+                            editorClassName="demo-editor"
+                            onEditorStateChange={this.onEditorStateChange}
+                        />
                         <br/>
                         <label>Footer Data:</label>
                         <TextareaAutosize rows={5} id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></TextareaAutosize>
