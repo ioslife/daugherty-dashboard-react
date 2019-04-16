@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Text } from 'informed'
 import TextareaAutosize from 'react-autosize-textarea'
 import image from '../../logo.png'
-import { pullData } from '../../services/pullData'
 import { pushData } from '../../services/pushData'
 import '../../styles/Admin/index.css'
 
@@ -12,6 +11,7 @@ export default class Kitchen extends Component {
         super(props)
 
         this.state = {
+            tvIdentifier: '',
             url: '',
             footer: '',
             column: ''
@@ -20,14 +20,6 @@ export default class Kitchen extends Component {
     
     componentDidMount() {
         console.log(this.state)
-        let getData = pullData(fetch)
-        return getData({tvIdentifier: 'atl-kitchen'}).then (result => {
-            result.json().then( response => {
-                this.setState({
-                    url: response.videoPlaylist
-                })
-            })
-        })
     }
 
     handleChange(e) {
@@ -41,6 +33,10 @@ export default class Kitchen extends Component {
 
         if (e.target.id === 'footer') {
             this.setState({footer: e.target.value})
+        }
+
+        if (e.target.id === 'dropdown') {
+            this.setState({tvIdentifier: e.target.value})
         }
 
         console.log(this.state)
@@ -61,6 +57,12 @@ export default class Kitchen extends Component {
                 
                 <div className='form'>
                     <form onSubmit={this.updateData}>
+                        <select id='dropdown' onChange={this.handleChange.bind(this)} value={this.state.tvIdentifier}>
+                            <option value="atl-lobby">Lobby</option>
+                            <option value="atl-kitchen">Kitchen</option>
+                            <option value="atl-dev">Dev Center</option>
+                        </select>
+                        <br/>
                         <label>Video Playlist URL: </label>
                         <Text id='url' value={this.state.url} onChange={this.handleChange.bind(this)}></Text>
                         <br/>                    

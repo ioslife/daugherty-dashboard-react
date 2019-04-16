@@ -40,7 +40,7 @@ export default class DevCenter extends Component {
                 <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
                 </div>
                 
-                <VideoEmbed url={this.state.url} title={this.state.title}/>
+                <VideoEmbed url={this.state.url}/>
                 <Column newHireCands={[]} clientPartners={[]} newTraining={this.newTrain} upcomingEng={[]}/>
                 <Footer text={this.state.footer}/>
           </div>
