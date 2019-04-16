@@ -29,7 +29,7 @@ export default class Kitchen extends Component {
 
     handleChange(e) {
         if (e.target.id === 'url') {
-            this.setState({url: e.target.value})
+            this.setState({url: e.target.value })
         }
 
         if (e.target.id === 'footer') {
@@ -44,7 +44,7 @@ export default class Kitchen extends Component {
     }
 
     updateData = () => {
-        axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url), banner: (this.state.footer), sidebar: (this.state.column)})
+        axios.post('https://daugherty-dashboard-backend.herokuapp.com/api/v1/admin/updateConfig/', {tvIdentifier: (this.state.tvIdentifier), videoPlaylist: (this.state.url + '/embed'), banner: (this.state.footer), sidebar: (this.state.column)})
     }
 
     fillFields = () => {
