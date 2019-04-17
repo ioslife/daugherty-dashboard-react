@@ -75,12 +75,14 @@ export default class Kitchen extends Component {
                 </div>
                 
                 <div className='form'>
+                    <div className='tvSel'>
+                    <select id='dropdown' onChange={this.handleChange.bind(this)} value={this.state.tvIdentifier}>
+                        <option value="atl-lobby">Lobby</option>
+                        <option value="atl-kitchen">Kitchen</option>
+                        <option value="atl-dev">Dev Center</option>
+                    </select>
+                    </div>
                     <form onSubmit={this.updateData}>
-                        <select id='dropdown' onChange={this.handleChange.bind(this)} value={this.state.tvIdentifier}>
-                            <option value="atl-lobby">Lobby</option>
-                            <option value="atl-kitchen">Kitchen</option>
-                            <option value="atl-dev">Dev Center</option>
-                        </select>
                         <br/>
                         <label>Video Playlist URL: </label>
                         <input className='textInput' size='200' id='url' value={this.state.url} onChange={this.handleChange.bind(this)}></input>
@@ -95,9 +97,10 @@ export default class Kitchen extends Component {
                         <br/>
                         <label>Footer Data:</label>
                         <input className='textInput' size="250" id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></input>
-                        <br/>
-                        <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
                     </form>
+                    <div className='btnSubmit'>
+                    <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
+                    </div>
                 </div>
           </div>
         )
