@@ -19,10 +19,6 @@ label {
 
 .submitBtn {
     width: 33%;
-    margin: 0 auto;
-    padding: 0;
-    display: inline-block;
-    line-height: 50px;
     text-align: center;
     font-weight: bold;
     font-size: auto;
