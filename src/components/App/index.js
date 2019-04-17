@@ -4,6 +4,7 @@ import Lobby from '../Lobby';
 import Kitchen from '../Kitchen';
 import DevCenter from '../DevCenter'
 import Admin from '../Admin'
+import Logo from '../Logo'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
