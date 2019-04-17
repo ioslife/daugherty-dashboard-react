@@ -25,7 +25,7 @@ label {
     line-height: 50px;
     text-align: center;
     font-weight: bold;
-    font-size: 150%;
+    font-size: auto;
 }
 
 .form {

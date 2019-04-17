@@ -95,6 +95,7 @@ export default class Kitchen extends Component {
                             onEditorStateChange={this.onEditorStateChange}
                         />
                         <br/>
+                        <br/> 
                         <label>Footer Data:</label>
                         <input className='textInput' size="250" id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></input>
                     </form>
