@@ -15,6 +15,7 @@ class App extends Component {
         <Route path="/kitchen" exact component={Kitchen} />
         <Route path="/dev" exact component={DevCenter} />
         <Route path="/" exact component={Admin} />
+        <Route path="/logo" exact component={Logo}/>
       </Router>
      
     );
