@@ -3,7 +3,7 @@ import image from '../../apple-touch-icon.png'
 export default class Logo extends Component {
     render() {
       return (
-        <img src={image} alt=''></img>
+        <img className='appLogo' src={image} alt=''></img>
       )
     }
 }
