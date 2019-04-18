@@ -8,18 +8,25 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {pullData} from '../../services/pullData'
 import {convertToHTML, convertFromHTML} from 'draft-convert'
 import Button from 'react-bootstrap/Button'
+import Select from 'react-select'
 
+const options = [
+    {value: 'atl-lobby', label:'Lobby'},
+    {value: 'atl-kitchen', label:'Kitchen'},
+    {value: 'atl-dev', label:'Dev Center'}
+]
 export default class Kitchen extends Component {
     upcomingEng = ''
     constructor(props) {
         super(props)
 
         this.state = {
-            tvIdentifier: 'atl-lobby',
+            tvIdentifier: '',
             url: '',
             footer: '',
             column: '',
-            editorState: EditorState.createEmpty()
+            editorState: EditorState.createEmpty(),
+            selectedOption: null
         }
     } 
     
@@ -35,10 +42,11 @@ export default class Kitchen extends Component {
         if (e.target.id === 'footer') {
             this.setState({footer: e.target.value})
         }
+    }
 
-        if (e.target.id === 'dropdown') {
-            this.setState({tvIdentifier: e.target.value}, this.fillFields)
-        }
+    dropdownChange = (selectedOption) => {
+        this.setState({selectedOption})
+        this.setState({tvIdentifier: selectedOption.value}, this.fillFields)
     }
 
     updateData = () => {
@@ -69,6 +77,7 @@ export default class Kitchen extends Component {
       }
 
     render() {
+        const {selectedOption} = this.state
         return (
             <div className="appDiv">
                 <div className="dbsLogo">
@@ -77,11 +86,13 @@ export default class Kitchen extends Component {
                 
                 <div className='form'>
                     <div className='tvSel'>
-                    <select id='dropdown' onChange={this.handleChange.bind(this)} value={this.state.tvIdentifier}>
-                        <option value="atl-lobby">Lobby</option>
-                        <option value="atl-kitchen">Kitchen</option>
-                        <option value="atl-dev">Dev Center</option>
-                    </select>
+                        <br/>
+                        <Select id='dropdown' 
+                                value={selectedOption}
+                                onChange={this.dropdownChange}
+                                options={options}
+                                placeholder='Select a TV'
+                        />
                     </div>
                     <form onSubmit={this.updateData}>
                         <br/>
@@ -100,8 +111,9 @@ export default class Kitchen extends Component {
                         <label>Footer Data:</label>
                         <input className='textInput' size="250" id='footer' value={this.state.footer} onChange={this.handleChange.bind(this)}></input>
                     </form>
+                    <br/>
                     <div className='btnSubmit'>
-                    <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
+                        <Button className='submitBtn' onClick={this.updateData} >Update Dashboard</Button>
                     </div>
                     <br/>
                     <br/>
