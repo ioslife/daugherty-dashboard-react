@@ -92,6 +92,7 @@ export default class Kitchen extends Component {
                                 onChange={this.dropdownChange}
                                 options={options}
                                 placeholder='Select a TV'
+                                readonly
                         />
                     </div>
                     <form onSubmit={this.updateData}>
