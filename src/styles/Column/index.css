@@ -3,12 +3,10 @@
     margin-right: 2%;
     width: 20%;
     font-size: 350%;
-    margin-top: 30px;
     margin-left:20px;
     border: solid 5px;
     padding: 20px;    
     color: white;
-    height: 1575px;
     background-image: linear-gradient(rgba(120,156,63,0.7), rgba(120,156,63,0.7));
     word-wrap: break-word;
 }
