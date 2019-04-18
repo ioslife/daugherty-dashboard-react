@@ -7,6 +7,7 @@ import { EditorState} from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {pullData} from '../../services/pullData'
 import {convertToHTML, convertFromHTML} from 'draft-convert'
+import Button from 'react-bootstrap/Button'
 
 export default class Kitchen extends Component {
     upcomingEng = ''
@@ -102,6 +103,7 @@ export default class Kitchen extends Component {
                     <div className='btnSubmit'>
                     <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
                     </div>
+                    <Button variant='primary'>asdasd</Button>
                 </div>
           </div>
         )
