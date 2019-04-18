@@ -10,18 +10,15 @@
 } 
 
 /* Make it a marquee */
-.marquee {
+.Marquee {
+    display:block;
     width: 100%;
     margin: 0 auto;
-    overflow: hidden;
+    overflow-x: hidden;
     white-space: nowrap;
-    box-sizing: border-box;
-    animation: marquee 60s linear infinite;
 }
 
-/* Make it move */
-@keyframes marquee {
-    0%   { text-indent: 70em }
-    100% { text-indent: -350em }
+.MarqueeContent {
+    display: inline-block;
 }
 
