@@ -103,6 +103,8 @@ export default class Kitchen extends Component {
                     <div className='btnSubmit'>
                     <input className='submitBtn' type="button" onClick={this.updateData} value="Update Dashboard"/>
                     </div>
+                    <br/>
+                    <br/>
                 </div>
           </div>
         )
