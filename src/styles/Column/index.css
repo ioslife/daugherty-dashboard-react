@@ -9,11 +9,10 @@
     border: solid 5px;
     padding: 20px;    
     color: white;
-    background-image: linear-gradient(rgba(120,156,63,0.7), rgba(120,156,63,0.7));
+    background-color: rgba(120,156,63,0.7);
     word-wrap: break-word;
 }
 
-.welcomeText {
-    font-size: 200%;
-    color: white;
-}
+h1 {
+    font-size: 200% !important;
+  }

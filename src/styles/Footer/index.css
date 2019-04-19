@@ -6,7 +6,7 @@
     font-size: 600%;
     color: white;
     width: 95.5%;
-    background-image: linear-gradient(rgba(120,156,63,0.7), rgba(120,156,63,0.7));
+    background-color: rgba(120,156,63,0.7);
 } 
 
 /* Make it a marquee */
