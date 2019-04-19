@@ -79,7 +79,7 @@ export default class Kitchen extends Component {
     render() {
         const {selectedOption} = this.state
         return (
-            <div className="appDiv">
+            <div className="adminDiv">
                 <div className="dbsLogo">
                     <img className="logo" src={image} alt='Daugherty Business Solutions'></img>
                 </div>

@@ -21,3 +21,8 @@ code {
   float: right;
 }
 
+.adminDiv {
+  background-image: linear-gradient(#789c3f, white);
+  height: 100%;
+}
+
