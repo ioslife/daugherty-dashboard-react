@@ -18,5 +18,6 @@ code {
 .appDiv {
   background-image: linear-gradient(#789c3f, white);
   height: 100%;
+  float: right;
 }
 
