@@ -5,7 +5,7 @@ export default class VideoEmbed extends Component {
     render() {
       return (
         <div className="videoDiv">
-          <iframe className="video-player" src={this.props.url + '/embed'} width="960" height="540" frameBorder="0" title={this.props.title} allow="autoplay; fullscreen" allowFullScreen>
+          <iframe className="video-player" src={this.props.url + '/embed'} frameBorder="0" title={this.props.title} allow="autoplay; fullscreen" allowFullScreen>
           </iframe>
         </div>
       )

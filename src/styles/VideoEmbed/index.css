@@ -1,7 +1,10 @@
 .video-player {
     margin: 1%;
+    height: 59vh;
+    width: 100%;
 }
 
 .videoDiv {
     float: left;
+    width: 70%;
 }
