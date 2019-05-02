@@ -1,9 +1,7 @@
 .welcomeCol {
     float: right;
-    margin-right: 2%;
     margin-top: .75%;
     width: 20%;
-    margin-left:20px;
     border: solid 5px;
     padding: 20px;    
     color: white;
@@ -14,3 +12,5 @@
 h1 {
     font-size: 200% !important;
   }
+
+  

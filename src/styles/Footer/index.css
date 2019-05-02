@@ -1,12 +1,12 @@
 .footer {
     float: left;
-    margin-left: 0.5%;
     border: solid 5px;
     padding: 25px;  
     font-size: 3vw;
     color: white;
     width: 97.5%;
     background-color: rgba(120,156,63,0.7);
+    margin-top: 1%;
 } 
 
 /* Make it a marquee */

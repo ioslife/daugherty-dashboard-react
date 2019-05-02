@@ -6,7 +6,7 @@ export default class Footer extends Component {
   
   render() {
     return (
-      <div className="footer">
+      <div className="footer col-md-12">
         <Marquee velocity='.3'>
           {this.props.text}
         </Marquee>
