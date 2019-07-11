@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import '../../styles/VideoEmbed/index.css'
-import {fetchVideos} from '../../services/pullVideos'
-import Vimeo from '@u-wave/react-vimeo';
+// import {fetchVideos} from '../../services/pullVideos'
+// import Vimeo from '@u-wave/react-vimeo';
 
-var $ = require('jquery')
-var HtmlToReactParser = require('html-to-react').Parser;
+// var $ = require('jquery')
+// var HtmlToReactParser = require('html-to-react').Parser;
 
 // var func = (callback) => {
 //   fetchVideos(callback)
 // }
 
 export default class VideoEmbed extends Component {
-    constructor(props){
-      super(props)
-      this.state = {
-        url: '',
-        index: 0
-      }
-    }
+    // constructor(props){
+    //   super(props)
+    //   this.state = {
+    //     url: '',
+    //     index: 0
+    //   }
+    // }
     // componentWillMount() {
     //   func((data) => {
     //     this.setState({url:data})
